@@ -1,0 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: phperrot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/21 13:24:21 by phperrot          #+#    #+#             */
+/*   Updated: 2018/07/21 23:04:54 by phperrot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include "ft_header.h"
+
+char* ft_read_size(void)
+{
+	char buffer;
+	int ret;
+	int i;
+	char ch;
+	buffer = "";
+	i = 0;
+	
+	while  (ret = read(STDIN_FILENO, &ch, 1))
+	{
+		printf("##%d###\n",i);
+		printf("##%s###\nP", buffer);
+		buffer[i] = ch;
+		i++;
+	}
+	return (buffer[0]);
+}
+/*
+   char *ft_read(int i)
+   {
+   char output[200];
+   int size;
+   int ret;	
+   size = ft_read_size();
+//	if(!(output = malloc(sizeof(char) * (size + 1))))
+//		return(0);
+ret  = (read(STDIN_FILENO, output, size));
+output[ret] = '\0';	
+printf("%s", output);	
+return(output);
+} 
+int maincc(int i)
+{
+	char *output;
+	int	ret;
+	int size;
+
+	size = i;
+	output = malloc(sizeof(char) * (size + 1));	
+	ret = read(STDIN_FILENO, output, size);
+	output[ret] = '\0';
+	size = ft_read_size();
+	printf("%s", output);
+	return (1);
+}
+*/
+int main(void)
+{
+	ft_read_size();
+	return(1);
+}
+
